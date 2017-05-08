@@ -1,0 +1,89 @@
+﻿@model Compliance.Dashboard.UI.Models.Shared.ScoreCardModel
+
+@{var first = true;}
+
+<div class="widget-box nopadding">
+    <div class="widget-title">
+        <ul class="nav nav-tabs">
+            @foreach (var scrv in Model.ScoreCardReviews.OrderByDescending(s => s.UtcCreated))
+            {
+                <li@( Html.Raw(first ? " class=\"active\"" : ""))><a data-toggle="tab" href="#@scrv.Id.ToString()">@scrv.UtcCreated.ToString("M/d/yy h:mm tt")</a></li>
+                first = false;
+            }
+        </ul>
+    </div>
+    <div class="widget-content nopadding tab-content">
+        @{first = true;}
+
+        @foreach (var theReview in Model.ScoreCardReviews.OrderByDescending(s => s.UtcCreated))
+        {
+            var theResults = Model.ScoreCardResults.Where(x => x.Id == theReview.MyScoreCardResultId).First();
+            var theCard = Model.ScoreCards.Where(x => x.Id == theResults.MyScoreCardId).First();
+            
+            <div id="@theReview.Id.ToString()" class="tab-pane@(first ? " active" : "")">
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Assertion</th>
+                            <th>Passing</th>
+                            <th>Score</th>
+                            <th>Passed</th>
+                            <th>Override</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var a in theReview.AssertionReviews.OrderBy(x => x.IsPassed))
+                        {
+                            var theAssert = Model.ScoreCards
+                                .Where(sc => sc.Assertions.Where(ass => ass.Id == a.MyAssertionId).Any())
+                                .First()
+                                .Assertions
+                                    .Where(ass => ass.Id == a.MyAssertionId)
+                                    .First();
+                        
+                            <tr style="font-weight: bold;">
+                                <td>@theAssert.Statement</td>
+                                <td>@a.Passing</td>
+                                <td>@a.Score</td>
+                                <td style="@((a.IsPassed) ? "background-color:lightgreen;" : "color:red; background-color:yellow;")">@a.IsPassed</td>
+                                <td><a href="#">Override</a></td>
+                            </tr>
+                            foreach (var q in theCard.Assertions.Where(y => y.Id == a.MyAssertionId).FirstOrDefault().Questions.ToList())
+                            {
+                                var thisAnswer = q.Answers.Where(x => theResults.Answers.Where(y => y.MyAnswerId == x.Id).Any()).FirstOrDefault();
+                                var thisAnswerResponse = (thisAnswer == null) ? null : theResults.Answers.Where(x => x.MyAnswerId == thisAnswer.Id).FirstOrDefault();
+                                var ans = "";
+                                var score = "0";
+                                var comment = "";
+                                var minute = "00";
+                                var second = "00";
+                                    
+                                if (thisAnswer != null)
+                                {
+                                    ans = thisAnswer.Label;
+                                    score = (q.Weight * thisAnswer.Percentage / 100).ToString();
+                                    comment = (thisAnswerResponse == null) ? "" : thisAnswerResponse.Comment;
+                                    if (comment.Length == 5)
+                                    { 
+                                        minute = comment.Substring(0,2);
+                                        second = comment.Substring(3,2);
+                                    }
+                                }
+                                
+                                
+                                <tr class="@a.MyAssertionId" style="font-size:smaller;">
+                                    <td>@q.Query</td>
+                                    <td @((score == "0.00") ? "style=color:red;" : "")>@ans</td>
+                                    <td>@score</td>
+                                    <td><span class="timeAnswer" data-minute="@minute" data-second="@second" style="visibility: hidden;">@ans</span> </td>
+                                    <td>@comment</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+            first = false;
+        }
+    </div>
+</div>

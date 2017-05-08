@@ -1,0 +1,48 @@
+﻿@model Compliance.Dashboard.UI.Models.Queues.PullQueueWorkItemModel
+@{
+    Layout = "~/Views/Shared/_QueueMaster.cshtml";
+}
+<script>
+    model.Action = "work";
+    model.WorkItemId = "@Model.MyRecordingItem.Id";
+    model.QueueItemId = "@ViewBag.QueueItemId";
+    model.ProfileId = "@ViewBag.Profile.Id";
+    model.Queue = "@ViewBag.QueueName";
+    model.Level = "@ViewBag.Level.QueueLevel";
+    model.LastAssignment = "";
+</script>
+
+@Html.Partial("_ScoreCardView", new Compliance.Dashboard.UI.Models.Shared.ScoreCardModel()
+{
+    MyWorkItem = Model.MyRecordingItem,
+    ScoreCards = Model.ScoreCards.OrderBy(sc => sc.Title).ToList()
+})
+
+
+@Html.Partial("_AccountView", Model.RelatedAccounts.ToList())
+
+@section css
+{
+    <link href="~/Content/jplayer.blue.monday.css" rel="stylesheet" />
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.jplayer.min.js"></script>
+    @Scripts.Render("~/Scripts/My/ScoreCard.js")
+    <script>
+        $(function () {
+            $("#jpPlayer").jPlayer({
+                ready: function (event) {
+                    $(this).jPlayer("setMedia", {
+                        m4a: '@(Url.Content("~/Audio/" + User.Identity.Name.Substring(11))).mp3?@(Guid.NewGuid())'
+                    }).jPlayer("play");
+                },
+                swfPath: "/scripts",
+                supplied: "m4a, oga",
+                wmode: "window",
+                smoothPlayBar: true,
+                keyEnabled: true
+            });
+        });
+    </script>
+}

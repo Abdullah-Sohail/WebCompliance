@@ -1,0 +1,10 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\Compliance.Common.Extensions.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\Compliance.Common.Extensions.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\obj\Debug\Compliance.Common.Extensions.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Extensions\obj\Debug\Compliance.Common.Extensions.pdb

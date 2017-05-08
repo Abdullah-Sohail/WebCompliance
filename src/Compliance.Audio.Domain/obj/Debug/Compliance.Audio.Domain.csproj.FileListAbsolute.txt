@@ -1,0 +1,17 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Audio.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Audio.Domain.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Audio.Domain.Enum.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Common.GenericRepo.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\EntityFramework.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Audio.Domain.Enum.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\Compliance.Common.GenericRepo.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\EntityFramework.xml
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\obj\Debug\Compliance.Audio.Domain.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\obj\Debug\Compliance.Audio.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain\obj\Debug\Compliance.Audio.Domain.pdb

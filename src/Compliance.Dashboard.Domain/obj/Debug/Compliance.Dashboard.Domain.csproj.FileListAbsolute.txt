@@ -1,0 +1,17 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Dashboard.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Dashboard.Domain.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Common.Enums.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Common.GenericRepo.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\EntityFramework.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Common.Enums.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\Compliance.Common.GenericRepo.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\EntityFramework.xml
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\obj\Debug\Compliance.Dashboard.Domain.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\obj\Debug\Compliance.Dashboard.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Dashboard.Domain\obj\Debug\Compliance.Dashboard.Domain.pdb

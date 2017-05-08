@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @Styles.Render("~/css/bootstrap.min.css")
+    @Styles.Render("~/css/font-awesome.css")
+    @Styles.Render("~/css/unicorn-login.css")
+    <link href="~/Content/custom.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="logo">
+            <img src="~/img/logo.png" alt="" />
+        </div>
+        <div id="user">
+            <img src="~/img/loader.gif" />
+            @*<div class="avatar">
+                    <div class="inner"></div>
+
+                </div>*@
+            @*<div class="text">
+                    <h4>Hello,<span class="user_name"></span></h4>
+                </div>*@
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                @if (ViewBag.Error != null)
+                {
+                    <div id="message" class="alert alert-danger">
+                        @ViewBag.Error
+                    </div>
+
+                }
+
+                @if (ViewBag.Message != null)
+                {
+                    <div id="message" class="alert alert-info">
+                        @ViewBag.Message
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="loginbox">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/js/unicorn.login.js")
+
+    <script src="~/Demo/js/jquery-ui.custom.min.js"></script>
+    @RenderSection("scripts", required: false)
+    <script type="text/javascript">
+        setTimeout(function () {
+            $("#message").hide();
+        }, 5000)
+    </script>
+
+</body>
+</html>
+

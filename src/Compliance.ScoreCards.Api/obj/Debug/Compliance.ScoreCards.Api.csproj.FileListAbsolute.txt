@@ -1,0 +1,17 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Compliance.ScoreCards.Api.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Compliance.ScoreCards.Api.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Compliance.ScoreCards.Api.Dto.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Newtonsoft.Json.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\System.Net.Http.Formatting.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Compliance.ScoreCards.Api.Dto.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\Newtonsoft.Json.xml
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\System.Net.Http.Formatting.xml
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\obj\Debug\Compliance.ScoreCards.Api.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\obj\Debug\Compliance.ScoreCards.Api.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.ScoreCards.Api\obj\Debug\Compliance.ScoreCards.Api.pdb

@@ -1,0 +1,137 @@
+﻿@model List<Compliance.Dashboard.UI.Models.Shared.AccountInfo>
+
+@{var first = true;}
+
+<div class="widget-box nopadding">
+    <div class="widget-title">
+        <ul class="nav nav-tabs">
+            @foreach (var a in Model)
+            {
+                <li@( Html.Raw(first ? " class=\"active\"" : ""))><a data-toggle="tab" href="#@a.Id.ToString()">@a.Id.ToString()</a></li>
+                first = false;
+            }
+        </ul>
+    </div>
+    <div class="widget-content tab-content">
+        @{first = true;}
+        @foreach (var a in Model)
+        {
+            <div id="@a.Id.ToString()" class="tab-pane@(first ? " active" : "")">
+                @{first = false;}
+                <div class="row" style="margin-top: 0px;">
+                    <div class="col-md-4">
+                        <div class="widget-box collapsible">
+                            <div class="widget-title">
+                                <a href="#collapse1@(a.Id.ToString())" data-toggle="collapse">
+                                    <span class="icon"><i class="icon-user"></i></span>
+                                    <h5>Consumers</h5>
+                                </a>
+                            </div>
+                            <div class="collapse in" id="collapse1@(a.Id.ToString())">
+
+                                <div class="widget-content">
+                                    <ul class="activity-list">
+                                        @foreach (var u in a.AccountDebtors)
+                                        {
+                                            <li>@u</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-box collapsible">
+                            <div class="widget-title">
+                                <a href="#collapse2@(a.Id.ToString())" data-toggle="collapse">
+                                    <span class="icon"><i class="icon-bell"></i></span>
+                                    <h5>Phones</h5>
+                                </a>
+                            </div>
+                            <div class="collapse" id="collapse2@(a.Id.ToString())">
+                                <div class="widget-content">
+                                    <ul class="activity-list">
+                                        @foreach (var p in a.RelatedPhones)
+                                        {
+                                            <li>@p.Key - @p.Value</li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget-box collapsible">
+                            <div class="widget-title">
+                                <a href="#collapse3@(a.Id.ToString())" data-toggle="collapse">
+                                    <span class="icon"><i class="icon-list"></i></span>
+                                    <h5>Account Details</h5>
+                                </a>
+                            </div>
+                            <div class="collapse in" id="collapse3@(a.Id.ToString())">
+                                <div class="widget-content">
+                                    <ul class="activity-list">
+                                        <li>@a.Branch/@a.CustomerCode/@a.Desk</li>
+                                        <li>@a.CustomerName</li>
+                                        <li>Original: @a.OriginalCreditor</li>
+                                        <li>Account: @a.CustAccountNum</li>
+                                        <li>Placed @a.DateReceived.ToString("M/dd/yy") for @a.OriginalBalance.ToString("C")</li>
+                                        @if (a.DateClosed.HasValue)
+                                        {
+                                            <li>Closed: @a.DateClosed.Value.ToString("M/dd/yy")</li>
+                                        }
+                                        @if (a.DateReturned.HasValue)
+                                        {
+                                            <li>Returned: @a.DateReturned.Value.ToString("M/dd/yy")</li>
+                                        }
+                                        @if (a.DateLastPaid.HasValue)
+                                        {
+                                            <li>Last Payment: @a.DateLastPaid.Value.ToString("M/dd/yy")</li>
+                                        }
+                                        <li>Current Balance: @a.CurrentBalance.ToString("C")</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="widget-box">
+                            <div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-edit"></i>
+                                </span>
+                                <h5>Notes</h5>
+                            </div>
+
+                            <div class="widget-content nopadding">
+                                <ul class="activity-list">
+                                    @foreach (var n in a.AccountNotes.OrderByDescending(n => n.Created))
+                                    {
+                                        <li><a class="tip-left" title="@n.Alias - @n.RealName" href="#">@switch (n.Action.ToUpper())
+                                                        {
+                                                            case "DT":
+                                            <input class="chkUserRef" data-user="@n.Username" type="checkbox" />
+                                                                break;
+                                                            case "AT":
+                                            <input class="chkUserRef" data-user="@n.Username" type="checkbox" />
+                                                                break;
+                                                            default:
+                                                                if (n.Action.Substring(0, 1).ToUpper() == "T")
+                                                                {
+                                            <input class="chkUserRef" data-user="@n.Username" type="checkbox" />
+                                                                }
+                                                                else
+                                                                {
+                                            <i class="icon-user"></i>
+                                                                }
+                                                                break;
+                                                        }
+                                            <strong>@n.Username</strong> - @n.Comment  <span>@n.Action/@n.Result at @n.Created.ToString("hh:mm:ss tt")</span>
+                                        </a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

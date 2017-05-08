@@ -1,0 +1,147 @@
+﻿@model Compliance.Dashboard.UI.Models.TeamPaginationViewModel
+
+@{
+    ViewBag.Title = "Team Home";
+    ViewBag.ShowPlayer = null;
+    ViewBag.ActiveMenu = "TeamHome";
+}
+
+@*Please select a Queue!
+<br /><br />
+<a href="/PhoneAudit/queue/FirstQueue/">Daily Compliance</a>*@
+
+<link rel="stylesheet" href="~/Content/choosenJS/chosen.css" />
+<link rel="stylesheet" href="~/css/jquery-ui.css" />
+<link rel="stylesheet" href="~/css/icheck/flat/blue.css" />
+<link rel="stylesheet" href="~/css/select2.css" />
+<link rel="stylesheet" href="~/css/unicorn.css" />
+<link rel="stylesheet" href="~/css/unicorn.grey.css" class="skin-color" />
+<style type="text/css">
+    .showSweetAlert input {
+        display: none;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="dataTables_filter" id="users-data-table_filter"><label>Search: <input class="searchTeams" type="text"></label></div>
+    </div>
+    <div class="col-sm-6">
+        <button class="btn btn-default pull-right createTeam">Add Team</button>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon">
+                <i class="icon-th"></i>
+            </span>
+            <h5></h5>
+        </div>
+        <div class="widget-content nopadding">
+            <table id="team-data-table" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th onclick="sortTeams('Id', this)">ID<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortTeams('TeamName', this)">Team<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortTeams('TeamMembers', this)">Members<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortTeams('TeamQueues', this)">Queues<span class="pull-right icon-sort"></span></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            
+            
+            <div id="pagination">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="modalQueue" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Queue</h4>
+            </div>
+            <div class="modal-body">
+                <input id="teamHidden" type="hidden" />
+                <label class="control-label">Queues List</label>
+                <div class="controls">
+                    <input class="select2" type="text" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="saveQueue" type="button" class="saveQueue" >Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="teamRowTmpl" type=text/x-jQuery-tmpl>
+    <tr>
+        <td>${Id}</td>
+        <td>${TeamName}</td>
+        <td>${TeamMembers}</td>
+        <td>${TeamQueues}</td>
+        <td class="taskOptions">
+            <a href="#"  class="tip-top assignQueue" data-id="${Id}" ><i class="icon-plus"></i></a> &nbsp;
+            <a href="#" class="tip-top editTeam" data-id="${Id}" data-text="${TeamName}" data-original-title="Update"><i class="icon-edit"></i></a> &nbsp;
+            <a href="#" class="tip-top deleteTeam" data-id="${Id}" data-text="${TeamName}" data-original-title="Delete"><i class="icon-remove"></i></a>
+        </td>
+    </tr>
+</script>
+
+
+
+<script id="paginationTmpl" type="text/x-jQuery-tmpl">
+    {{if Pager.EndPage > 1}}
+    <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+        <div class="dataTables_filter" id="DataTables_Table_0_filter">
+
+        </div>
+        <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="DataTables_Table_0_paginate">
+            <a id="page" tabindex="0" href="#" onclick="getTeams(1)" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ${Pager.CurrentPage == 1?'ui-state-disabled':''}" id="DataTables_Table_0_first">First</a>
+            <a id="page" tabindex="0" href="#" onclick="getTeams(${Pager.CurrentPage - 1})" class="previous fg-button ui-button ui-state-default ${Pager.CurrentPage > 1?'':'ui-state-disabled'}" id="DataTables_Table_0_previous">Previous</a>
+            <span>
+                {{each(page) nTimesArray(Pager.EndPage)}}
+                <a id="page" tabindex="0" href="#" onclick="getTeams(${page+1})" class="fg-button ui-button ui-state-default ${page+1 == Pager.CurrentPage ? 'ui-state-disabled' : ''}">${page+1}</a>
+                {{/each}}
+            </span>
+            {{if Pager.CurrentPage < Pager.TotalPages}}
+            <a id="page DataTables_Table_0_next" tabindex="0" href="#" onclick="getTeams(${Pager.CurrentPage + 1})" class="next fg-button ui-button ui-state-default">Next</a>
+            <a id="page DataTables_Table_0_last" tabindex="0" href="#" onclick="getTeams(${Pager.TotalPages})" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default">Last</a>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+</script>
+
+@section Scripts {
+    <script src="~/Content/choosenJS/chosen.jquery.min.js"></script>
+    <script src="~/js/jquery.icheck.min.js"></script>
+    <script src="~/js/select2.min.js"></script>
+    <script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/jquery.jpanelmenu.min.js"></script>
+    <script src="~/js/jquery.nicescroll.min.js"></script>
+    <script src="~/js/unicorn.js"></script>
+    <script src="~/js/unicorn.tables.js"></script>
+    <script src="~/js/tmpl.min.js"></script>
+    <script src="~/js/jquery.tmpl.min.js"></script>
+    <script src="~/Scripts/My/Team.js"></script>
+    <script type="text/javascript">
+            $(function(){
+                var model=@Html.Raw(Json.Encode(Model));
+                init(model);
+            });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,15 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\Compliance.WorkItems.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\Compliance.WorkItems.Domain.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\Compliance.Common.GenericRepo.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\EntityFramework.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\Compliance.Common.GenericRepo.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\EntityFramework.xml
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\obj\Debug\Compliance.WorkItems.Domain.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\obj\Debug\Compliance.WorkItems.Domain.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.WorkItems.Domain\obj\Debug\Compliance.WorkItems.Domain.pdb

@@ -1,0 +1,109 @@
+﻿@model Compliance.Dashboard.UI.Models.UserPaginationViewModel
+@{
+    ViewBag.Title = "Users";
+}
+<link rel="stylesheet" href="~/css/jquery-ui.css" />
+<link rel="stylesheet" href="~/css/icheck/flat/blue.css" />
+<link rel="stylesheet" href="~/css/select2.css" />
+<link rel="stylesheet" href="~/css/unicorn.css" />
+<link rel="stylesheet" href="~/css/unicorn.grey.css" class="skin-color" />
+<style type="text/css">
+    .showSweetAlert input {
+        display: none;
+    }
+</style>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="dataTables_filter" id="users-data-table_filter"><label>Search: <input class="searchUsers" type="text"></label></div>
+    </div>
+    <div class="col-sm-6">
+        @Html.ActionLink("Add User", "AddUser", "Account", new { }, new { @class = "btn btn-default pull-right" })
+    </div>
+</div>
+
+<div class="container">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon">
+                <i class="icon-th"></i>
+            </span>
+            <h5></h5>
+        </div>
+        <div class="widget-content nopadding">
+            <table id="users-data-table" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th onclick="sortUsers('FirstName', this)">Firstname<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortUsers('LastName', this)">Lastname<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortUsers('Email', this)">Email<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortUsers('CellNumber', this)">Cell Number<span class="pull-right icon-sort"></span></th>
+                        <th onclick="sortUsers('Role', this)">Role<span class="pull-right icon-sort"></span></th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="pagination">
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script id="userRowTmpl" type=text/x-jQuery-tmpl>
+    <tr>
+        <td>  ${FirstName}  </td>
+        <td>  ${LastName}  </td>
+        <td>  ${Email}  </td>
+        <td>  ${CellNumber}  </td>
+        <td>  ${SelectedRole}  </td>
+        <td class="taskOptions">
+            <a href="/Account/UpdateProfile/${UserId}" class="tip-top" data-original-title="Update"><i class="icon-edit"></i></a> &nbsp;
+            <a href="#" class="tip-top deleteProfile" data-original-title="Delete" data-id="${UserId}"><i class="icon-remove"></i></a>
+        </td>
+    </tr>
+</script>
+
+<script id="paginationTmpl" type="text/x-jQuery-tmpl">
+    {{if Pager.EndPage > 1}}
+    <div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix">
+        <div class="dataTables_filter" id="DataTables_Table_0_filter">
+
+        </div>
+        <div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="DataTables_Table_0_paginate">
+            <a id="page" tabindex="0" href="#" onclick="getUsers(1)" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ${Pager.CurrentPage == 1?'ui-state-disabled':''}" id="DataTables_Table_0_first">First</a>
+            <a id="page" tabindex="0" href="#" onclick="getUsers(${Pager.CurrentPage - 1})" class="previous fg-button ui-button ui-state-default ${Pager.CurrentPage > 1?'':'ui-state-disabled'}" id="DataTables_Table_0_previous">Previous</a>
+            <span>
+                {{each(page) nTimesArray(Pager.EndPage)}}
+                <a id="page" tabindex="0" href="#" onclick="getUsers(${page+1})" class="fg-button ui-button ui-state-default ${page+1 == Pager.CurrentPage ? 'ui-state-disabled' : ''}">${page+1}</a>
+                {{/each}}
+            </span>
+            {{if Pager.CurrentPage < Pager.TotalPages}}
+            <a id="page" tabindex="0" href="#" onclick="getUsers(${Pager.CurrentPage + 1})" class="next fg-button ui-button ui-state-default" id="DataTables_Table_0_next">Next</a>
+            <a id="page" tabindex="0" href="#" onclick="getUsers(${Pager.TotalPages})" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default" id="DataTables_Table_0_last">Last</a>
+            {{/if}}
+        </div>
+    </div>
+    {{/if}}
+</script>
+
+@section Scripts {
+    <script src="~/js/jquery.icheck.min.js"></script>
+    <script src="~/js/select2.min.js"></script>
+    <script src="~/js/jquery.dataTables.min.js"></script>
+    <script src="~/js/jquery.jpanelmenu.min.js"></script>
+    <script src="~/js/jquery.nicescroll.min.js"></script>
+    <script src="~/js/unicorn.js"></script>
+    <script src="~/js/unicorn.tables.js"></script>
+    <script src="~/js/tmpl.min.js"></script>
+    <script src="~/js/jquery.tmpl.min.js"></script>
+    <script src="~/Scripts/My/User.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var model=@Html.Raw(Json.Encode(Model));
+            init(model);
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+}

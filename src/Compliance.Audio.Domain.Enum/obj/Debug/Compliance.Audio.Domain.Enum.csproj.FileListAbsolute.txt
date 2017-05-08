@@ -1,0 +1,11 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\Compliance.Audio.Domain.Enum.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\Compliance.Audio.Domain.Enum.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\obj\Debug\Compliance.Audio.Domain.Enum.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\obj\Debug\Compliance.Audio.Domain.Enum.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Audio.Domain.Enum\obj\Debug\Compliance.Audio.Domain.Enum.pdb

@@ -1,0 +1,53 @@
+﻿@model Compliance.Dashboard.UI.Models.Shared.ScoreCardModel
+
+
+@{var first = true;}
+
+<div class="widget-box nopadding">
+    <div class="widget-title">
+        <ul class="nav nav-tabs">
+            @foreach (var sc in Model.ScoreCards)
+            {
+                <li@( Html.Raw(first ? " class=\"active\"" : ""))><a data-toggle="tab" href="#@sc.Id.ToString()">@sc.Title</a></li>
+                first = false;
+            }
+        </ul>
+    </div>
+    <div class="widget-content tab-content">
+        @{first = true;}
+        @foreach (var sc in Model.ScoreCards)
+        {
+            <div id="@sc.Id.ToString()" class="tab-pane@(first ? " active" : "")">
+                <ul class="recent-posts">
+                    @foreach (var a in sc.Assertions.OrderBy(x => x.Order))
+                    {
+                        foreach (var q in a.Questions.OrderBy(x => x.Order))
+                        { 
+                        <li id="@q.Id.ToString()" @if (q.MyParentAnswerId.HasValue)
+                                                  {
+                                                  <TEXT>class = 'parent_@q.MyParentAnswerId.Value.ToString()' style='display:none;'</TEXT>
+                                                  }>
+                            <div class="user-thumb">
+                                <h4 id="lbl_@q.Id.ToString()" data-scorecard="@sc.Id.ToString()" class="answer_@sc.Id.ToString()" style="text-align:center; overflow:hidden;"></h4>
+                            </div>
+                            <div class="article-post">
+                                <p>@Html.Raw(q.Query)</p>
+
+                                @foreach (var ans in q.Answers.Where(x => x.Label != "N/A").OrderBy(x => x.Order))
+                                {
+                                    <a id="@ans.Id.ToString()" href="javascript:answer_select('@ans.Id.ToString()');" 
+                                        data-question="@q.Id.ToString()"
+                                        class="btn btn-primary btn-xs q_ans"
+                                        >@ans.Label</a>
+
+                                }
+                            </div>
+                        </li>
+                        }
+                    }
+                </ul>
+            </div>
+                    first = false;
+        }
+    </div>
+</div>

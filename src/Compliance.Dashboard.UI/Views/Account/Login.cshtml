@@ -1,0 +1,16 @@
+﻿@using Compliance.Dashboard.UI.Models
+@model LoginPageCommonModel
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewBag.Title = "Log in";
+}
+
+@Html.Partial("_LoginPartial")
+
+@Html.Partial("_ForgotPasswordPartial")
+
+@*@Html.Partial("_RegisterPartial")*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

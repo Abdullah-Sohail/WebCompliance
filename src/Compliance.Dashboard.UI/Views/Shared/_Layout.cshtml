@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compliance - @ViewBag.Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    @RenderSection("precss", required: false)
+
+    @Styles.Render("~/css/bootstrap.min.css")
+    @Styles.Render("~/css/font-awesome.css")
+    @Styles.Render("~/css/jquery.jscrollpane.css")
+    @Styles.Render("~/css/unicorn.css")
+    <link rel="stylesheet" href="/css/unicorn.grey.css" class="skin-color" />
+    <link href="~/Scripts/sweetalert/dist/sweetalert.css" rel="stylesheet" />
+    <link href="~/js/bootstrap-toastr/toastr.css" rel="stylesheet" />
+
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    @RenderSection("css", required: false)
+
+    @Scripts.Render("~/bundles/modernizr")
+    <script>
+        var model = {};
+    </script>
+</head>
+<body>
+    <div id="header">
+        <h1><a href="/">DSG Compliance</a></h1>
+        <a id="menu-trigger" href="#"><i class="icon-align-justify"></i></a>
+    </div>
+
+    <div id="search">
+        <input type="text" placeholder="Search here..." />
+        <button type="submit" class="tip-right" style="margin-left: -4px;" title="Search"><i class="icon-search"></i></button>
+    </div>
+    <div id="user-nav">
+        <ul class="btn-group">
+            @*<li class="btn"><a title="" href="/Account/UpdateProfile"><i class="icon-user"></i><span class="text">@User.Identity.Name</span></a></li>*@
+            <li class="btn dropdown" id="menu-messages">
+                <a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon-envelope"></i><span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a class="sAdd" title="" href="#">new message</a></li>
+                    <li><a class="sInbox" title="" href="#">inbox</a></li>
+                    <li><a class="sOutbox" title="" href="#">outbox</a></li>
+                    <li><a class="sTrash" title="" href="#">trash</a></li>
+                </ul>
+            </li>
+            <li class="btn"><a title="" href="#"><i class="icon-cog"></i><span class="text">Settings</span></a></li>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li class="btn dropdown" id="profile">
+                    <a href="#" data-toggle="dropdown" data-target="#profile" class="dropdown-toggle"><i class="icon-user"></i><span class="text">@User.Identity.Name</span> &nbsp;<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a title="" href="/Account/UpdateProfile">Profile</a></li>
+                        <li><a title="" href="/Account/changepassword">Change Password</a></li>
+                        <li>@Html.Partial("_LogoutPartial")</li>
+                    </ul>
+
+                </li>
+            }
+
+
+            @*<li class="btn"><a title="" href="/Team/"><i class="icon-share-alt"></i><span class="text">Logout</span></a></li>*@
+        </ul>
+
+    </div>
+
+    @* ------ THIS IS THE MENU ----*@
+    <div id="sidebar">
+        <ul>
+            <li @Html.Raw(ViewBag.ActiveMenu == "Home" ? "class=\"active\"" : "")>
+                <a href="/"><i class="icon icon-home"></i><span>Home Page</span></a>
+            </li>
+            <li @Html.Raw(ViewBag.ActiveMenu == "TeamHome" ? "class=\"active\"" : "")>
+                <a href="/Team/"><i class="icon icon-user"></i><span>Team Home</span></a>
+            </li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li @Html.Raw(ViewBag.ActiveMenu == "Users" ? "class=\"active\"" : "")>
+                    <a href="/Account/Users/"><i class="icon icon-user"></i><span>Users</span></a>
+                </li>
+                <li @Html.Raw(ViewBag.ActiveMenu == "Roles" ? "class=\"active\"" : "")>
+                    <a href="/Role/Index/"><i class="icon icon-key"></i><span>Roles</span></a>
+                </li>
+            }
+
+        </ul>
+    </div>
+
+    <div id="content">
+        <div id="content-header">
+
+            @if (ViewBag.ShowPlayer != null)
+            {
+                @Html.Partial("_Player");
+            }
+            else
+            {
+                <h1 id="pageTitle">@ViewBag.Title</h1>
+            }
+
+            @*            <div class="btn-group">
+                    <a class="btn btn-large tip-bottom" title="Last Queue"><i class="icon-step-backward"></i></a>
+                    <a class="btn btn-large tip-bottom" title="Attach File"><i class="icon-file"></i></a>
+                    <a href="#" id="addComment" class="btn btn-large tip-bottom" title="Add Comment"><i class="icon-comment"></i><span class="label label-important">5</span></a>
+                    <a class="btn btn-large tip-bottom" title="Next Queue" href="javascript:doNextQueue();"><i class="icon-step-forward"></i></a>
+                </div>*@
+        </div>
+        <div id="breadcrumb">
+            <a href="/" title="Go to Home" class="tip-bottom"><i class="icon-home"></i>Home</a>
+            @RenderSection("bread", required: false)
+            <a href="#" class="current">@ViewBag.Title</a>
+        </div>
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+
+    </div>
+    <div class="row">
+        <div id="footer" class="col-xs-12">
+            2017 &copy; Divinity Software Group LLC
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/js/excanvas.min.js")
+    @Scripts.Render("~/js/jquery-ui.custom.js")
+    @Scripts.Render("~/js/bootstrap.min.js")
+    @Scripts.Render("~/js/jquery.jpanelmenu.min.js")
+    @Scripts.Render("~/js/jquery.nicescroll.min.js")
+    @Scripts.Render("~/js/unicorn.js")
+
+    @Scripts.Render("~/Scripts/My/Common.js")
+    <script src="~/Scripts/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/js/jquery.tmpl.min.js"></script>
+    <script src="~/js/tmpl.min.js"></script>
+    <script src="~/js/bootstrap-toastr/toastr.js"></script>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

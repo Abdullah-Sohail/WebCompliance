@@ -1,0 +1,11 @@
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\Compliance.Common.Enums.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\Compliance.Common.Enums.pdb
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\mscorlib.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\normidna.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\normnfc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\normnfd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\normnfkc.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\bin\Debug\normnfkd.nlp
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\obj\Debug\Compliance.Common.Enums.csprojResolveAssemblyReference.cache
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\obj\Debug\Compliance.Common.Enums.dll
+D:\Abdullah\GIT\WebCompliance\src\Compliance.Common.Enums\obj\Debug\Compliance.Common.Enums.pdb
